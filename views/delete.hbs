@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>delete</title>
+    <style>
+        .header{           
+            height: 150px;
+            margin-left: 300px;
+            margin-right: 300px;
+            background-color: deepskyblue;
+        }
+        .img{
+            height: 150px;
+            margin-left: 50px;
+            display: block;
+            float: left;
+        }
+        .text{
+            margin-top: 30px;
+            text-align: center;
+            line-height: 150px;
+        }
+        .index{
+            height: 600px;
+            margin-left: 300px;
+            margin-right: 300px;
+        }
+        .body1{
+            height: 600px;
+            width: 30%;
+            background-color: lemonchiffon;
+            float: left;
+        }
+        .body2{
+            height: 600px;
+            width: 70%;
+            background-color: rgb(160, 167, 152);
+            float: right;
+        }
+        .img1{
+            height: 150px;
+            width: 200px;
+        }
+        .img2{
+            height: 150px;
+            width: 200px;
+        }
+        .table{           
+            margin-left: auto;
+            margin-right: auto;
+            width: 600px;
+            height: auto;
+            background-color: azure;
+        }
+        .table tr td{
+            text-align: center;
+            text-transform: capitalize;
+            height: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header"> 
+        <img class="img" src="https://www.sacvang.com/data/02/logo-khung-long-01.jpg" alt="" >    
+        <div class="text"><h1>ATN STORE</h1></div>
+    </div>
+    <div id="content" class="index">
+ 
+        <div class="body1"> 
+            <a href="/home" style="text-align: center;"><h3>View all products</h3></a><br>
+            <a href="/insert" style="text-align: center;"><h3>Add new product</h3></a><br>
+            <a href="/edit" style="text-align: center;"><h3>Edit product</h3></a><br>
+            <a href="/delete" style="text-align: center;"><h3>delete product</h3></a>
+        </div>
+
+        <div class="body2">
+            <form action="/SearchDelete" method="POST">
+                <div style="text-align: center;">
+                    <input type="text" name="txtName" placeholder="search..."/>
+                    <input type="submit" value="Search">
+                </div>
+            </form>
+            <table class="table" border="2">
+                <tr style="font-size: x-large;">
+                    <td>Number</td>
+                    <td>Name</td>
+                    <td>Price</td>
+                    <td>Delete</td>
+                </tr>
+                {{#each model}}
+                <tr style="font-size: x-large;">
+                    <td>{{number}}</td>
+                    <td>{{name}}</td>
+                    <td>{{price}}$</td>
+                    <td><a href="/deleteInfor?id={{_id}}">Delete</a></td>
+                </tr>
+                {{/each}}
+            </table>    
+        </div>
+    </div>
+</body>
+</html>
