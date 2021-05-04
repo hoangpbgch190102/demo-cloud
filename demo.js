@@ -8,7 +8,7 @@ var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({extended: false}))
 app.set('view engine','hbs')
 
-var url = 'mongodb://localhost:27017';
+var url = 'mongodb+srv://hoangka123456:baohoang123@cluster0.nxexs.mongodb.net/test';
 var MongoClient = require('mongodb').MongoClient;
 
 app.get('/', async (req, res) => { 
@@ -111,5 +111,6 @@ app.get('/deleteInfor', async (req,res)=>{
     res.redirect('delete')
 })
 
-app.listen(5000)
-console.log('Server is running!')
+const PORT = process.env.PORT||3000 
+app.listen(PORT); 
+console.log('server is running at 3000')
